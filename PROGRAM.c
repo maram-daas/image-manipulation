@@ -12,7 +12,7 @@ unsigned char *chargerImage(char *nomFichier, int *largeur, int *hauteur) {
     int canaux;
     unsigned char *img = stbi_load(nomFichier, largeur, hauteur, &canaux, 3); // force rgb
     if (img == NULL) {
-        printf(" Échec du chargement de l'image\n");
+        printf(" Ã‰chec du chargement de l'image\n");
         return NULL;
     }
     printf(" Image chargee avec succes: %d x %d pixels\n", *largeur, *hauteur);
@@ -24,7 +24,7 @@ unsigned char *chargerImage(char *nomFichier, int *largeur, int *hauteur) {
 
     FILE *out = fopen(nomMatriceRGB, "w");
     if (out == NULL) {
-        printf(" Échec de creation du fichier matrice RGB\n");
+        printf(" Ã‰chec de creation du fichier matrice RGB\n");
     } else {
         int i = 0;
         while (i < *hauteur) {
@@ -54,7 +54,7 @@ void sauvegarderMatriceRGB(unsigned char *img, int largeur, int hauteur, char *n
 
     FILE *out = fopen(fichierSortie, "w");
     if (out == NULL) {
-        printf(" Échec de creation du fichier de sortie\n");
+        printf(" Ã‰chec de creation du fichier de sortie\n");
         return;
     }
     int i = 0;
@@ -82,7 +82,7 @@ void sauvegarderMatriceRGBInversee(unsigned char *img, int largeur, int hauteur,
 
     FILE *out = fopen(fichierSortie, "w");
     if (out == NULL) {
-        printf(" Échec de creation du fichier inverse\n");
+        printf(" Ã‰chec de creation du fichier inverse\n");
         return;
     }
     int i = 0;
@@ -107,7 +107,7 @@ void sauvegarderMatriceRGBInversee(unsigned char *img, int largeur, int hauteur,
 unsigned char *clonerImage(unsigned char *img, int largeur, int hauteur) {
     unsigned char *clone = (unsigned char*)malloc(largeur * hauteur * 3);
     if (clone == NULL) {
-        printf(" Échec d'allocation de memoire pour l'image\n");
+        printf(" Ã‰chec d'allocation de memoire pour l'image\n");
         return NULL;
     }
     memcpy(clone, img, largeur * hauteur * 3);
@@ -139,7 +139,7 @@ void creerImageInversee(char *nomOriginal, unsigned char *img, int largeur, int 
     if (stbi_write_jpg(nouveauNom, largeur, hauteur, 3, imgInv, 100)) {
         printf(" Image inversee sauvegardee sous %s\n", nouveauNom);
     } else {
-        printf(" Échec de sauvegarde de l'image inversee\n");
+        printf(" Ã‰chec de sauvegarde de l'image inversee\n");
     }
 
     free(imgInv);
@@ -153,7 +153,7 @@ void sauvegarderMatriceNiveauxGris(unsigned char *img, int largeur, int hauteur,
     FILE *matriceGris = fopen(nomMatrice, "w");
 
     if (matriceGris == NULL) {
-        printf(" Échec de creation du fichier de matrice niveaux de gris\n");
+        printf(" Ã‰chec de creation du fichier de matrice niveaux de gris\n");
         return;
     }
 
@@ -166,7 +166,7 @@ void sauvegarderMatriceNiveauxGris(unsigned char *img, int largeur, int hauteur,
             // Calcule la valeur en niveaux de gris avec la formule standard de luminance
             int niveauGris = (int)(0.299 * img[idx] + 0.587 * img[idx + 1] + 0.114 * img[idx + 2]);
 
-            // Écrit dans la matrice en niveaux de gris
+            // Ã‰crit dans la matrice en niveaux de gris
             fprintf(matriceGris, "(%3d) ", niveauGris);
 
             j = j + 1;
@@ -188,7 +188,7 @@ void creerImageNiveauxGris(char *nomOriginal, unsigned char *img, int largeur, i
     unsigned char *imgGris = (unsigned char*)malloc(largeur * hauteur * 3);
 
     if (imgGris == NULL) {
-        printf(" Échec d'allocation de memoire pour l'image en niveaux de gris\n");
+        printf(" Ã‰chec d'allocation de memoire pour l'image en niveaux de gris\n");
         return;
     }
 
@@ -215,7 +215,7 @@ void creerImageNiveauxGris(char *nomOriginal, unsigned char *img, int largeur, i
     if (stbi_write_jpg(nouveauNom, largeur, hauteur, 3, imgGris, 100)) {
         printf(" Image en niveaux de gris sauvegardee sous %s\n", nouveauNom);
     } else {
-        printf(" Échec de sauvegarde de l'image en niveaux de gris\n");
+        printf(" Ã‰chec de sauvegarde de l'image en niveaux de gris\n");
     }
 
     free(imgGris);
@@ -229,7 +229,7 @@ void sauvegarderMatriceNoirBlanc(unsigned char *img, int largeur, int hauteur, c
     FILE *matriceNB = fopen(nomMatrice, "w");
 
     if (matriceNB == NULL) {
-        printf(" Échec de creation du fichier de matrice noir et blanc\n");
+        printf(" Ã‰chec de creation du fichier de matrice noir et blanc\n");
         return;
     }
 
@@ -245,7 +245,7 @@ void sauvegarderMatriceNoirBlanc(unsigned char *img, int largeur, int hauteur, c
             // Determine la valeur noir/blanc basee sur un seuil
             int nb = (niveauGris >= 128) ? 255 : 0;
 
-            // Écrit dans la matrice noir et blanc
+            // Ã‰crit dans la matrice noir et blanc
             fprintf(matriceNB, "(%3d) ", nb);
 
             j = j + 1;
@@ -267,7 +267,7 @@ void creerImageNoirBlanc(char *nomOriginal, unsigned char *img, int largeur, int
     unsigned char *imgNB = (unsigned char*)malloc(largeur * hauteur * 3);
 
     if (imgNB == NULL) {
-        printf(" Échec d'allocation de memoire pour l'image noir et blanc\n");
+        printf(" Ã‰chec d'allocation de memoire pour l'image noir et blanc\n");
         return;
     }
 
@@ -297,7 +297,7 @@ void creerImageNoirBlanc(char *nomOriginal, unsigned char *img, int largeur, int
     if (stbi_write_jpg(nouveauNom, largeur, hauteur, 3, imgNB, 100)) {
         printf(" Image noir et blanc sauvegardee sous %s\n", nouveauNom);
     } else {
-        printf(" Échec de sauvegarde de l'image noir et blanc\n");
+        printf(" Ã‰chec de sauvegarde de l'image noir et blanc\n");
     }
 
     free(imgNB);
@@ -311,7 +311,7 @@ void sauvegarderMatriceRotation(unsigned char *imgRotation, int nouvelleLargeur,
 
     FILE *matriceRot = fopen(nomMatrice, "w");
     if (matriceRot == NULL) {
-        printf(" Échec de creation du fichier de matrice rotation\n");
+        printf(" Ã‰chec de creation du fichier de matrice rotation\n");
         return;
     }
 
@@ -341,14 +341,14 @@ void creerImageRotation(char *nomOriginal, unsigned char *img, int largeur, int 
     float cosAngle = cos(angleRad);
     float sinAngle = sin(angleRad);
 
-    // Calculer les dimensions de l'image après rotation
+    // Calculer les dimensions de l'image aprÃ¨s rotation
     int nouvelleLargeur = (int)(fabs(largeur * cosAngle) + fabs(hauteur * sinAngle)) + 1;
     int nouvelleHauteur = (int)(fabs(hauteur * cosAngle) + fabs(largeur * sinAngle)) + 1;
 
     // Creer la nouvelle image
     unsigned char *imgRotation = (unsigned char*)malloc(nouvelleLargeur * nouvelleHauteur * 3);
     if (imgRotation == NULL) {
-        printf(" Échec d'allocation de memoire pour l'image pivotee\n");
+        printf(" Ã‰chec d'allocation de memoire pour l'image pivotee\n");
         return;
     }
 
@@ -419,7 +419,7 @@ void creerImageRotation(char *nomOriginal, unsigned char *img, int largeur, int 
     if (stbi_write_jpg(nouveauNom, nouvelleLargeur, nouvelleHauteur, 3, imgRotation, 100)) {
         printf(" Image pivotee (%.0f degres) sauvegardee sous %s\n", angle, nouveauNom);
     } else {
-        printf(" Échec de sauvegarde de l'image pivotee\n");
+        printf(" Ã‰chec de sauvegarde de l'image pivotee\n");
     }
 
     // Sauvegarder la matrice avec l'angle
@@ -435,7 +435,7 @@ void sauvegarderMatriceFlip(unsigned char *imgFlip, int largeur, int hauteur, ch
 
     FILE *matriceFlip = fopen(nomMatrice, "w");
     if (matriceFlip == NULL) {
-        printf(" Échec de creation du fichier de matrice flip\n");
+        printf(" Ã‰chec de creation du fichier de matrice flip\n");
         return;
     }
 
@@ -458,7 +458,7 @@ void sauvegarderMatriceFlip(unsigned char *imgFlip, int largeur, int hauteur, ch
     printf(" Matrice de flip horizontal sauvegardee dans %s\n", nomMatrice);
 }
 
-// cree et sauvegarde l'image inversee horizontalement (gauche à droite)
+// cree et sauvegarde l'image inversee horizontalement (gauche Ã  droite)
 void creerImageFlip(char *nomOriginal, unsigned char *img, int largeur, int hauteur) {
     char nouveauNom[200];
     sprintf(nouveauNom, "flip_horizontal_%s", nomOriginal);
@@ -466,7 +466,7 @@ void creerImageFlip(char *nomOriginal, unsigned char *img, int largeur, int haut
     // Creer une nouvelle image pour le flip horizontal
     unsigned char *imgFlip = (unsigned char*)malloc(largeur * hauteur * 3);
     if (imgFlip == NULL) {
-        printf(" Échec d'allocation de memoire pour l'image inversee horizontalement\n");
+        printf(" Ã‰chec d'allocation de memoire pour l'image inversee horizontalement\n");
         return;
     }
 
@@ -477,7 +477,7 @@ void creerImageFlip(char *nomOriginal, unsigned char *img, int largeur, int haut
             // Indice du pixel original
             int idxSrc = (i * largeur + j) * 3;
 
-            // Indice du pixel inverse (même ligne, colonne inversee)
+            // Indice du pixel inverse (mÃªme ligne, colonne inversee)
             int idxDst = (i * largeur + (largeur - 1 - j)) * 3;
 
             // Copier les valeurs RGB
@@ -494,7 +494,7 @@ void creerImageFlip(char *nomOriginal, unsigned char *img, int largeur, int haut
     if (stbi_write_jpg(nouveauNom, largeur, hauteur, 3, imgFlip, 100)) {
         printf(" Image inversee horizontalement sauvegardee sous %s\n", nouveauNom);
     } else {
-        printf(" Échec de sauvegarde de l'image inversee horizontalement\n");
+        printf(" Ã‰chec de sauvegarde de l'image inversee horizontalement\n");
     }
 
     // Sauvegarder la matrice
@@ -503,7 +503,6 @@ void creerImageFlip(char *nomOriginal, unsigned char *img, int largeur, int haut
     free(imgFlip);
 }
 
-// Affiche le message de bienvenue avec des caracteres ASCII
 void afficherBienvenue() {
     printf("+----------------------------------------+\n");
     printf("|                                        |\n");
@@ -511,10 +510,9 @@ void afficherBienvenue() {
     printf("|                                        |\n");
     printf("+----------------------------------------+\n");
     printf("\n Bienvenue dans le Programme de Traitement d'Image !\n");
-    printf(" Ce programme vous permet d'appliquer divers effets à vos images.\n\n");
+    printf(" Ce programme vous permet d'appliquer divers effets Ã  vos images.\n\n");
 }
 
-// Affiche les options du menu avec des caracteres ASCII
 void afficherMenu() {
     printf("\n");
     printf("+----------------------------------------+\n");
@@ -531,7 +529,7 @@ void afficherMenu() {
     printf(" Entrez votre choix: ");
 }
 
-// Fonction pour traiter toutes les options à la fois
+// Fonction pour traiter toutes les options Ã  la fois
 void traiterToutesOptions(char *nomFichier, unsigned char *img, int largeur, int hauteur) {
     printf("\n === Traitement de Toutes les Options ===\n");
 
