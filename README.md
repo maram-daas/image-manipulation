@@ -10,11 +10,12 @@ This project contains files under different licenses:
 
 -  `program.c` (original code by Maram DAAS)
   Licensed under the **Creative Commons Attribution-NonCommercial 4.0 International License**.  
-  You can use it freely for study, personal, or non-commercial purposes — just don't use it commercially.  
+  You can use it freely for study, personal, or non-commercial purposes.  
   Credit must be given to the creator.  
   See the full license text in the [LICENSE](LICENSE) file or visit  
   [creativecommons.org/licenses/by-nc/4.0](https://creativecommons.org/licenses/by-nc/4.0/)
 
 This project was designed as a learning-experience, feel free to use it to explore and understand image manipulation.  
 Best of luck, and have fun coding <33 
+
 \-maram
