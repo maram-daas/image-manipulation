@@ -1,12 +1,18 @@
-This project includes the following third-party libraries:
+# License
 
-- stb_image.h
-- stb_image_write.h
+This project contains components licensed under different terms. See the details below.
+
+---
+
+The following parts of this project are dual-licensed under the MIT license and Public Domain, as originally written by Sean Barrett:
+
+- `stb-image.h`
+- `stb-image-write.h`
 
 These are part of the stb single-file public domain libraries by Sean Barrett.
 https://github.com/nothings/stb
 
-They are dual-licensed under the MIT license and Public Domain.
+They .
 You may choose either license for your use.
 
 Below is the license text provided in the original stb files:
