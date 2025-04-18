@@ -17,5 +17,3 @@ This project contains files under different licenses:
 
 This project was designed as a learning-experience, feel free to use it to explore and understand image manipulation.  
 Best of luck, and have fun coding <33 
-
-\-maram
