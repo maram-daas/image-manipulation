@@ -1,4 +1,8 @@
-> **Note:** GitHub incorrectly identifies this repository as 75% C++ due to the inclusion of a third-party, header-only C library.  
+## Note
+
+This program is designed specifically for .jpg images. Please ensure your input file is in JPG format to avoid errors.
+
+> GitHub incorrectly identifies this repository as 75% C++ due to the inclusion of a third-party, header-only C library.  
 > All original code (`program.c`) is written in standard C.
 
 ## License
