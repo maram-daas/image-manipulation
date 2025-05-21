@@ -43,6 +43,8 @@ unsigned char *chargerImage(char *nomFichier, int *largeur, int *hauteur) {
         fclose(out);
         printf(" Matrice RGB sauvegardee automatiquement dans %s\n", nomMatriceRGB);
     }
+    getchar();
+    getchar();
 
     return img;
 }
@@ -503,6 +505,7 @@ void creerImageFlip(char *nomOriginal, unsigned char *img, int largeur, int haut
     free(imgFlip);
 }
 
+// Affiche le message de bienvenue avec des caracteres ASCII
 void afficherBienvenue() {
     printf("+----------------------------------------+\n");
     printf("|                                        |\n");
@@ -513,7 +516,13 @@ void afficherBienvenue() {
     printf(" Ce programme vous permet d'appliquer divers effets à vos images.\n\n");
 }
 
+void clear_screen() {
+    system("cls");
+}
+
+// Affiche les options du menu avec des caracteres ASCII
 void afficherMenu() {
+    clear_screen();
     printf("\n");
     printf("+----------------------------------------+\n");
     printf("|            OPTIONS DU MENU             |\n");
@@ -582,18 +591,27 @@ int main() {
                 printf("\n === Creation de l'Image Inversee ===\n");
                 sauvegarderMatriceRGBInversee(img, largeur, hauteur, nomFichier);
                 creerImageInversee(nomFichier, img, largeur, hauteur);
+                getchar();
+                printf("\n Cliquer n'impore quoi pour sortir..");
+                getchar();
                 break;
 
             case 2:
                 printf("\n === Traitement en Niveaux de Gris ===\n");
                 sauvegarderMatriceNiveauxGris(img, largeur, hauteur, nomFichier);
                 creerImageNiveauxGris(nomFichier, img, largeur, hauteur);
+                getchar();
+                printf("\n Cliquer n'impore quoi pour sortir..");
+                getchar();
                 break;
 
             case 3:
                 printf("\n === Traitement en Noir et Blanc ===\n");
                 sauvegarderMatriceNoirBlanc(img, largeur, hauteur, nomFichier);
                 creerImageNoirBlanc(nomFichier, img, largeur, hauteur);
+                                getchar();
+                printf("\n Cliquer n'impore quoi pour sortir..");
+                getchar();
                 break;
 
             case 4:
@@ -603,25 +621,40 @@ int main() {
                     printf(" Entrez l'angle de rotation en degres: ");
                     scanf("%f", &angle);
                     creerImageRotation(nomFichier, img, largeur, hauteur, angle);
+                                    getchar();
+                    printf("\n Cliquer n'impore quoi pour sortir..");
+                    getchar();
                 }
                 break;
 
             case 5:
                 printf("\n === Inversion Horizontale de l'Image ===\n");
                 creerImageFlip(nomFichier, img, largeur, hauteur);
+                                getchar();
+                printf("\n Cliquer n'impore quoi pour sortir..");
+                getchar();
                 break;
 
             case 6:
                 // Utiliser la fonction dediee pour traiter toutes les options
                 traiterToutesOptions(nomFichier, img, largeur, hauteur);
+                                getchar();
+                printf("\n Cliquer n'impore quoi pour sortir..");
+                getchar();
                 break;
 
             case 0:
                 printf("\n Sortie du programme. Au revoir !\n");
+                                getchar();
+                printf("\n Cliquer n'impore quoi pour sortir..");
+                getchar();
                 break;
 
             default:
                 printf("\n Choix invalide. Veuillez reessayer.\n");
+                                getchar();
+                printf("\n Cliquer n'impore quoi");
+                getchar();
         }
 
     } while (choix != 0);
